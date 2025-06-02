@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Pengumuman Kelulusan SD Inpres 26 Ambon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 500px;
+        }
+        h1, h2 {
+            margin: 10px 0;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 20px 0;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #2196f3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pengumuman Kelulusan</h1>
+        <h2>SD Inpres 26 Ambon</h2>
+        <p>Tahun Pelajaran 2024/2025</p>
+        <input type="text" id="nisn" placeholder="Masukkan NISN Anda">
+        <br>
+        <button onclick="cekKelulusan()">Login</button>
+        <div id="hasil" class="result"></div>
+    </div>
+
+    <script>
+        const dataSiswa = {
+            "3125917391": ["Afiqa Salsa Dewi", "LULUS"],
+            "3138012109": ["Afriani Tan", "LULUS"],
+            "3147788192": ["Avnan", "LULUS"],
+            "3133244991": ["Berliana Sarapova Azzara Tanjung", "LULUS"],
+            "3136757800": ["Husein Fahreza Wattiheluw", "LULUS"],
+            "3125904475": ["Jihan Savira", "LULUS"],
+            "3138415833": ["Julatu Sangadji", "LULUS"],
+            "3139902281": ["La Ode Rayan Muliawan", "LULUS"],
+            "0138832479": ["Muhammad Zacky Purnomo", "LULUS"],
+            "3135720159": ["Nadila Rahma Tuanaya", "LULUS"],
+            "3139049375": ["Nur Bugis", "LULUS"],
+            "3131763889": ["Nur Majidha Toisuta", "LULUS"],
+            "3136908070": ["Nurrofika Naya", "LULUS"],
+            "3126122305": ["Putra Aditya Arfa", "LULUS"],
+            "3131681590": ["Radjab Sayuti", "LULUS"],
+            "3135338737": ["Rasmawaty Onoly", "LULUS"],
+            "3128602681": ["Ratu Arti Diva Naemah Ohorella", "LULUS"],
+            "0139495150": ["Rivka Khairiah Kiahaly", "LULUS"],
+            "3134546528": ["Rumana Olivia Uar", "LULUS"],
+            "0134985778": ["Santika Putri", "LULUS"],
+            "0138178995": ["Sassuaxena Ramadhani Kaufua", "LULUS"],
+            "3130129280": ["Shaqinah Thaha", "LULUS"],
+            "3139429354": ["Siti Dira Vazid Saleh", "LULUS"],
+            "3125134539": ["Siti Sarah Difinubun", "LULUS"],
+            "3131035832": ["Sri Wulandari Waliulu", "LULUS"],
+            "0122981961": ["Sulfin Wadlau", "LULUS"],
+            "3138278117": ["Syami Shafita Elly", "LULUS"],
+            "3138684359": ["Thoriq Abdul Aziz Warang", "LULUS"],
+            "0127654451": ["Wa Yana", "LULUS"],
+            "3136721798": ["Zahira Ollong", "LULUS"],
+            "0139570253": ["Zhein Barka Waliulu", "LULUS"],
+            "3134022519": ["Zill Qayyim Ahmad Syauqi", "LULUS"],
+            "0132308641": ["Zulfikar Ramadhansyah Sahupala", "LULUS"],
+            "3132401564": ["Azriel Erlangga Putra Tung", "LULUS"],
+            "0121890197": ["Fakhri Afif Arifin", "LULUS"],
+            "3129290729": ["Fathir Syakir Zauzan Mahu", "LULUS"],
+            "3137479331": ["Saifullah Sinaga", "LULUS"],
+            "3125344521": ["Sirin Najiyyah Amin", "LULUS"],
+            "3137479331": ["Zubair", "LULUS"] // NISN sama dengan Saifullah, jika ini benar mohon dicek ulang
+        };
+
+        function cekKelulusan() {
+            const nisn = document.getElementById("nisn").value.trim();
+            const hasil = document.getElementById("hasil");
+
+            if (dataSiswa[nisn]) {
+                const [nama, status] = dataSiswa[nisn];
+                hasil.innerHTML = `Nama: <strong>${nama}</strong><br>Status Kelulusan: <strong>${status}</strong>`;
+                hasil.classList.remove("error");
+            } else {
+                hasil.innerHTML = "NISN tidak ditemukan. Silakan periksa kembali.";
+                hasil.classList.add("error");
+            }
+        }
+    </script>
+</body>
+</html>
